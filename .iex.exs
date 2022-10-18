@@ -1,0 +1,1 @@
+alias E.{Emails, Mailer}

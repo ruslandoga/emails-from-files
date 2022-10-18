@@ -1,1 +1,1 @@
-<pre>Wake up, <%= @name %></pre>
+<pre>Wake up, <%= @name %>...</pre>

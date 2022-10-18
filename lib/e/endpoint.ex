@@ -7,7 +7,7 @@ defmodule EWeb.Endpoint do
   plug Plug.Parsers, parsers: [:urlencoded, :multipart, :json], pass: ["*/*"], json_decoder: Jason
   plug :dispatch
 
-  # plug Bamboo.SentEmailViewerPlug
+  forward "/sent_emails", to: Bamboo.SentEmailViewerPlug
 
   match _ do
     send_resp(conn, 404, "Not found")

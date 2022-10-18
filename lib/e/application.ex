@@ -5,7 +5,7 @@ defmodule E.Application do
 
   use Application
   @app :e
-  @endpoint EWeb.Endpoit
+  @endpoint EWeb.Endpoint
 
   @impl true
   def start(_type, _args) do
@@ -14,6 +14,10 @@ defmodule E.Application do
     children = [
       maybe_server(web_config)
     ]
+
+    alias E.Emails
+    Emails.cache_custom_wake_up()
+    Emails.compile_custom_wake_up()
 
     children = Enum.reject(children, &is_nil/1)
     opts = [strategy: :one_for_one, name: E.Supervisor]
